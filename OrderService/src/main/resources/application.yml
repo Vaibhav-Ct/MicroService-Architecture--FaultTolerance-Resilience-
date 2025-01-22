@@ -1,0 +1,10 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      userServiceCircuitBreaker:
+        slidingWindowSize: 5      # Number of requests in the window
+        failureRateThreshold: 50 # Percentage of failures to open the circuit
+        waitDurationInOpenState: 20s # Duration to stay open before transitioning to half-open
+        permittedNumberOfCallsInHalfOpenState: 2 # Calls allowed in half-open state
+        slowCallDurationThreshold: 2s # Calls longer than 2s are considered slow
+        slowCallRateThreshold: 50    # Percentage of slow calls to open the circuit
